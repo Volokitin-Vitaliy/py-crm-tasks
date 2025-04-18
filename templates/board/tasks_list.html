@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Tasks{% endblock %}
+{% block content %}
+    <h2>Tasks</h2>
+    {% if tasks %}
+    <table class="table task-col" style="color: white">
+      <tr class="list">
+        <th class="table-list">Urgent</th>
+        <th class="table-list">High</th>
+        <th class="table-list">Medium</th>
+        <th class="table-list">Low</th>
+      </tr>
+      <tr>
+        <td class="table-tasks">
+          {% for task in urgent_tasks %}
+            {{ task.name }}<br>
+          {% endfor %}
+        </td>
+        <td class="table-tasks">
+          {% for task in high_tasks %}
+            {{ task.name }}<br>
+          {% endfor %}
+        </td>
+        <td class="table-tasks">
+          {% for task in medium_tasks %}
+            {{ task.name }}<br>
+          {% endfor %}
+        </td>
+        <td class="table-tasks">
+          {% for task in low_tasks %}
+            {{ task.name }}<br>
+          {% endfor %}
+        </td>
+      </tr>
+    </table>
+  {% else %}
+    <p>There are no Tasks</p>
+  {% endif %}
+{% endblock %}
