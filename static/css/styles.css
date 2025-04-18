@@ -1,0 +1,67 @@
+body {
+    font-family: 'Rajdhani', sans-serif;
+    margin-top: 20px;
+    margin-right: 20px;
+    color: white;
+    background: black;
+}
+
+.col-sm-9 {
+    background-color: dimgrey;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.col-sm-9 .list{
+    background-color: black;
+}
+
+.sidebar-nav {
+    list-style: none;
+    border-radius: 8px;
+}
+
+.sidebar-nav li {
+    background: dimgrey;
+}
+
+.sidebar-nav li a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.table {
+    text-align: center;
+    text-decoration: none;
+}
+
+.table.task-col {
+    border-collapse: separate;
+    border-spacing: 30px 10px;
+}
+
+
+.table .table-tasks {
+    background-color: white;
+    color: black;
+    text-align: left;
+    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 20px 5px;
+}
+
+.table th, .table td {
+    width: 25%;
+    padding: 15px;
+}
+
+.table .table-list {
+    border-radius: 8px;
+
+}
+
+.table .table-tasks {
+    border-radius: 8px;
+}
