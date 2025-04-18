@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Home page{% endblock %}
+
+{% block content %}
+  <h2>Project</h2>
+  <table class="table" style="color: white">
+      <tr class="list">
+        <th>Num Tasks</th>
+        <th>Num Workers</th>
+      </tr>
+      <tr>
+        <td>{{ num_tasks }}</td>
+        <td>{{ num_workers}}</td>
+      </tr>
+    </table>
+{% endblock %}
