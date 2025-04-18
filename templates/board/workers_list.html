@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Workers{% endblock %}
+{% block content %}
+  <h2>Workers</h2>
+  {% if workers %}
+    <table class="table" style="color: white">
+      <tr class="list">
+        <th>Name</th>
+        <th>Position</th>
+        <th>Tasks</th>
+      </tr>
+      {% for worker in workers %}
+        <tr>
+          <td>{{ worker.username }}</td>
+          <td>{{ worker.position }}</td>
+          <td>
+            {% for task in worker.tasks.all %}
+              {{ task.name }}<br>
+            {% endfor %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+{% endblock %}
