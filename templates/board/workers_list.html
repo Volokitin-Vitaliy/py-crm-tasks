@@ -12,11 +12,17 @@
       </tr>
       {% for worker in workers %}
         <tr>
-          <td>{{ worker.username }}</td>
+          <td>
+            <a href="{% url 'board:worker-profile-detail' worker.pk %}" style="color: white">
+              {{ worker.username }}
+            </a>
+          </td>
           <td>{{ worker.position }}</td>
           <td>
             {% for task in worker.tasks.all %}
-              {{ task.name }}<br>
+              <a href="{% url 'board:task-detail' task.pk %}" style="color: white">
+                {{ task.name }}
+              </a><br>
             {% endfor %}
           </td>
         </tr>
