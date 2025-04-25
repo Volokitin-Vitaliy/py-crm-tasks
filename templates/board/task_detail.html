@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ task.name }} 
+    <a type="submit" class="btn btn-success btn-hover"  href="{% url "board:task-update" task.id%}">Update</a>
+    <a type="submit" class="btn btn-danger"  href="{% url "board:task-delete" task.id%}">Delete</a>
+  </h1>
+  <p><b>Priority:</b> {{ task.priority }}</p>
+  <p><b>Deadline:</b> {{ task.deadline }}</p>
+  <p><b>Description:</b> {{ task.description }}</p>
+  <p><b>Is Completed:</b> {{ task.is_completed }}</p>
+  <p><b>Type:</b> {{ task.task_type }}</p>
+  <div class="ml-3">
+    <h2>Assignees</h2>
+    {% for worker in task.assignees.all %}
+      <hr>
+      <p>
+        <a href="{% url 'board:worker-profile-detail' worker.pk %}" style="color: white;">
+          {{ worker.first_name }} {{ worker.last_name }}
+        </a>
+      </p>
+    {% empty %}
+      <p>No Assignees.</p>
+    {% endfor %}
+</div>
+{% endblock %}
