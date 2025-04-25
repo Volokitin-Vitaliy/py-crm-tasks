@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Profile</h1>
+  <p><strong>Name:</strong> {{ worker.first_name }} {{ worker.last_name }}</p>
+  <p><strong>Position:</strong> {{ worker.position }}</p>
+  <h2>Tasks</h2>
+  {% if worker.tasks.all %}
+    <ul class="sidebar-nav">
+      {% for task in worker.tasks.all %}
+        <li>
+          <a href="{% url 'board:task-detail' task.id %}"><strong>• {{ task.name }}</strong> - {{ task.priority }}{% if task.is_completed %} (Completed){% endif %}</a><br>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No tasks assigned.</p>
+  {% endif %}
+{% endblock %}
