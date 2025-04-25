@@ -16,6 +16,11 @@ body {
     background-color: black;
 }
 
+.btn-hover:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+}
+
 .sidebar-nav {
     list-style: none;
     border-radius: 8px;
@@ -65,3 +70,4 @@ body {
 .table .table-tasks {
     border-radius: 8px;
 }
+
