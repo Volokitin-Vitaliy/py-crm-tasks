@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'board',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,9 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "board.Worker"
+
+LOGIN_REDIRECT_URL = "/board/"
+
+LOGOUT_REDIRECT_URL = "/accounts/login"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
