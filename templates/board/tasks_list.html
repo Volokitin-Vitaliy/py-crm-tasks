@@ -2,7 +2,7 @@
 
 {% block title %}Tasks{% endblock %}
 {% block content %}
-    <h2>Tasks</h2>
+    <h2>Tasks <a type="submit" class="btn btn-success btn-hover"  href="{% url "board:task-create" %}">Add+</a></h2>
     {% if tasks %}
     <table class="table task-col" style="color: white">
       <tr class="list">
@@ -14,22 +14,22 @@
       <tr>
         <td class="table-tasks">
           {% for task in urgent_tasks %}
-            {{ task.name }}<br>
+            <a href="{% url 'board:task-detail' task.id %}">{{ task.name }}</a><br>
           {% endfor %}
         </td>
         <td class="table-tasks">
           {% for task in high_tasks %}
-            {{ task.name }}<br>
+            <a href="{% url 'board:task-detail' task.id %}">{{ task.name }}</a><br>
           {% endfor %}
         </td>
         <td class="table-tasks">
           {% for task in medium_tasks %}
-            {{ task.name }}<br>
+            <a href="{% url 'board:task-detail' task.id %}">{{ task.name }}</a><br>
           {% endfor %}
         </td>
         <td class="table-tasks">
           {% for task in low_tasks %}
-            {{ task.name }}<br>
+            <a href="{% url 'board:task-detail' task.id %}">{{ task.name }}</a><br>
           {% endfor %}
         </td>
       </tr>
