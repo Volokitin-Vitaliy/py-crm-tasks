@@ -71,3 +71,6 @@ body {
     border-radius: 8px;
 }
 
+.form-text.text-muted {
+  color: white !important;
+}
