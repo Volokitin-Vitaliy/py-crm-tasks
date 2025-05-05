@@ -5,7 +5,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from board.models import Task, Worker
-from board.forms import TaskCreateForm
+from board.forms import TaskCreateForm, WorkerCreationForm
+
 
 def index(request: HttpRequest) -> HttpResponse:
     num_tasks = Task.objects.count()
@@ -59,6 +60,23 @@ class WorkersListView(LoginRequiredMixin, generic.ListView):
     model = Worker
     template_name = "board/workers_list.html"
     context_object_name = "workers"
+
+
+class WorkerCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Worker
+    form_class = WorkerCreationForm
+    success_url = reverse_lazy("board:worker-list")
+
+class WorkerUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Task
+    form_class = WorkerCreationForm
+    success_url = reverse_lazy("board:worker-profile-detail")
+
+
+class WorkerDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Worker
+    template_name = "board/worker_delete.html"
+    success_url = reverse_lazy("board:worker-list")
 
 
 class WorkerProfileDetailView(LoginRequiredMixin, generic.DetailView):
