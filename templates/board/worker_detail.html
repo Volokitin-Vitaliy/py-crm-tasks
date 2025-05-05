@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Profile</h1>
+  <h1>Profile     
+    <a type="submit" class="btn btn-success btn-hover"  href="{% url "board:worker-update" worker.id%}">Update</a>
+    <a type="submit" class="btn btn-danger"  href="{% url "board:worker-delete" worker.id%}">Delete</a>
+  </h1>
   <p><strong>Name:</strong> {{ worker.first_name }} {{ worker.last_name }}</p>
   <p><strong>Position:</strong> {{ worker.position }}</p>
   <h2>Tasks</h2>
