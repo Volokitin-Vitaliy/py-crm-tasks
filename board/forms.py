@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
 
-from board.models import Task
+from board.models import Task, Worker
 
 
 class TaskCreateForm(forms.ModelForm):
@@ -24,3 +25,9 @@ class TaskCreateForm(forms.ModelForm):
     class Meta:
         model = Task
         exclude = ["is_completed"]
+
+
+class WorkerCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = Worker
+        fields = UserCreationForm.Meta.fields + ("first_name", "last_name", "position", )
