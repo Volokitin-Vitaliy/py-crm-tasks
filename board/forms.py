@@ -31,3 +31,15 @@ class WorkerCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Worker
         fields = UserCreationForm.Meta.fields + ("first_name", "last_name", "position", )
+
+
+class WorkerUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Worker
+        fields = ("username", "first_name", "last_name", "position")
+
+    def clean_username(self):
+        username = self.cleaned_data["username"]
+        if Worker.objects.exclude(pk=self.instance.pk).filter(username=username).exists():
+            raise forms.ValidationError("A user with that username already exists.")
+        return username
