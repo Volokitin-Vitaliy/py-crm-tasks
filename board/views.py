@@ -1,11 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 
 from board.models import Task, Worker
-from board.forms import TaskCreateForm, WorkerCreationForm
+from board.forms import TaskCreateForm, WorkerCreationForm, WorkerUpdateForm
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -68,9 +68,12 @@ class WorkerCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("board:worker-list")
 
 class WorkerUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Task
-    form_class = WorkerCreationForm
-    success_url = reverse_lazy("board:worker-profile-detail")
+    model = Worker
+    form_class = WorkerUpdateForm
+    template_name = "board/worker_form.html"
+
+    def get_success_url(self):
+        return reverse("board:worker-profile-detail", kwargs={'pk': self.object.pk})
 
 
 class WorkerDeleteView(LoginRequiredMixin, generic.DeleteView):
