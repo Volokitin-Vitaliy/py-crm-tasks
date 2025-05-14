@@ -18,7 +18,7 @@ urlpatterns = [
     path("workers/create/", WorkerCreateView.as_view(), name="worker-create"),
     path("workers/<int:pk>/update/", WorkerUpdateView.as_view(), name="worker-update"),
     path("workers/<int:pk>/delete/", WorkerDeleteView.as_view(), name="worker-delete"),
-    path("workers/<int:pk>", WorkerProfileDetailView.as_view(), name="worker-profile-detail"),
+    path("workers/<int:pk>/", WorkerProfileDetailView.as_view(), name="worker-profile-detail"),
 ]
 
 app_name = "board"
