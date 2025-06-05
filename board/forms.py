@@ -24,7 +24,6 @@ class TaskCreateForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        exclude = ["is_completed"]
 
 
 class WorkerCreationForm(UserCreationForm):
