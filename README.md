@@ -42,3 +42,7 @@ Each team member can:
 
 ### Deploy link
 https://crm-tasks.onrender.com/
+
+### Test User
+login: user
+password: user12345
