@@ -39,3 +39,6 @@ Each team member can:
 **TaskType** - categories/types of tasks.
 
 **Task** - tasks with description, deadline, completion status, priority, type, and assignees.
+
+### Deploy link
+https://crm-tasks.onrender.com/
